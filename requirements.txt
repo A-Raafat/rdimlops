@@ -1,0 +1,7 @@
+fastapi
+opencv-python-headless
+uvicorn
+joblib
+python-multipart
+jinja2
+lightgbm
