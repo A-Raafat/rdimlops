@@ -4,13 +4,8 @@ from fastapi import FastAPI
 from fastapi import UploadFile, File, Request
 import cv2
 from io import BytesIO
-from fastapi.templating import Jinja2Templates
-from fastapi.staticfiles import StaticFiles
 
 app = FastAPI(title="Predicting Covid Class")
-
-#app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
 
 
 @app.on_event("startup")
