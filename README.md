@@ -38,7 +38,7 @@ This branch to explain the walkthrough of the training / test pipeline
 
 - Confusion matrix
 - 
-![alt text](https://github.com/A-Raafat/rdimlops/blob/Train_Test/cm.png)
+![alt text](https://github.com/A-Raafat/rdimlops/blob/Train_Test/cm2.png)
 
 - Precision recall and F1 score
 
