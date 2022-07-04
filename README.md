@@ -36,6 +36,10 @@ This branch to explain the walkthrough of the training / test pipeline
 ## Evaluation 
 - The test (around 400 images) set gave us the following results
 
+- Learning curve
+
+![alt text](https://github.com/A-Raafat/rdimlops/blob/Train_Test/traininerror.png)
+
 - Confusion matrix
 
 ![alt text](https://github.com/A-Raafat/rdimlops/blob/Train_Test/cm2.png)
