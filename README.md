@@ -2,7 +2,9 @@
 
 This repo has the UI of the task
 
-To test the app, go to https://rdimlops.herokuapp.com/
+The CI is done using Github action, which runs the tests inside `app/test_clf` using pytest and the CD is done using heroku which waits for the CI then deploys the app on its free cloud service 
+
+To test the UI app, go to https://rdimlops.herokuapp.com/
 
 Or you can Curl to upload and check the prediction 
 ```bash
