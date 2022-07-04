@@ -13,9 +13,9 @@ im = preprocess(im)
 
 def test_mdl_sanity():
 
-    assert joblib.load('model.pkl)
+    assert joblib.load('model.pkl')
                        
                    
 def test_mdl_prediction():
-    clf = joblib.load('model.pkl)
+    clf = joblib.load('model.pkl')
     assert clf.predict(im)
