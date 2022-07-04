@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from keras.datasets import mnist
+import lightgbm as lgb
 from lightgbm import LGBMClassifier
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import precision_recall_fscore_support
@@ -9,6 +9,8 @@ import cv2
 import os
 from glob import glob
 import joblib
+import seaborn as sns
+
 
 train_data_path='Data/train/'
 test_data_path ='Data/test/'
@@ -44,23 +46,47 @@ x_train = x_train.reshape((x_train.shape[0], x_train.shape[-1]))
 x_test = x_test.reshape((x_test.shape[0], x_test.shape[-1]))
 
 
+## Creating lightgbm datasets
+lgb_train = lgb.Dataset(x_train, y_train)
+lgb_valid = lgb.Dataset(x_test, y_test, reference=lgb_train)
 
-model = LGBMClassifier(boosting_type='gbdt', 
-                 objective='binary',
-                 num_iteration=100, max_depth=4, learning_rate=0.01, 
-                 n_estimators=100, nthread=4, silent=False)
-      
-      
-      
-                 
-                 
-model.fit(x_train,y_train)
+#Configuring parameters:
+params = {
+    'task': 'train',
+    'boosting_type': 'gbdt',
+    'objective': 'binary',
+    'metric': {'binary_error'},
+    'num_leaves': 20,
+    'learning_rate': 0.05,
+    'feature_fraction': 0.9,
+    'bagging_fraction': 0.8,
+    'bagging_freq': 5,
+    'min_data_in_leaf':4,
+     #'min_sum_hessian_in_leaf': 5,
+    'verbose':10
+}
 
+# Training
+
+evals_result = {} 
+gbm = lgb.train(params,
+                lgb_train,
+                num_boost_round=200,
+                valid_sets=[lgb_train, lgb_valid],
+                evals_result=evals_result,
+                verbose_eval=10,
+                early_stopping_rounds=50)
+
+#Plotting the result:
+lgb.plot_metric(evals_result, metric='binary_error')
 
 pred = model.predict(x_test)
+pred[pred > 0.5] = 1
+pred[pred < 0.5] = 0
+
 
 cm = confusion_matrix(y_test, pred)
-print(cm)
+sns.heatmap(cm, annot=True, xticklabels=['Covid', 'Normal'], yticklabels=['Covid', 'Normal'])
 
 Precision,Recall,F1_score,_ = precision_recall_fscore_support(y_test, pred, average='macro')
 Accuracy = accuracy_score(y_test, pred)
