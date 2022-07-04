@@ -38,10 +38,12 @@ async def home_predict(request: Request, file: UploadFile = File(...) ):
     
     if pred < 0.5:
     	out="Congratulations you are Normal !"
+    	ss= round(((1-pred)*100),2)
     else:
     	out="Unfortunately you are infected by Covid"
-    	
-    result={"Prediction": out}
+    	ss = round(pred*100,2)
+    result={"Prediction": out, "Score" : str(ss)+'%'}
+    
     return templates.TemplateResponse("index.html", {"request": request, 'result': result})
     
 @app.post("/predict")
