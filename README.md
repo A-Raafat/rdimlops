@@ -44,12 +44,84 @@ Then you can go to localhost/docs to test the API using the FastAPI UI
 or by also using curl
 
 
+# Endpoints
+
+## HOME [GET]
+
+This endpoint checks whether a server is up and running or not
+
+#### Request URL
+
+https://rdi-mlops-api.herokuapp.com/
+
+#### Request parameters
+
+NA
+
+#### Request Body
+
+NA
+
+#### Request Response
+
+200 OK
+
+#### Representation
+
+```json
+"Welcome to Covid classifier by Ahmed Raafat, Please visit localhost/docs for the fastapi UI"
+```
+
+#### Code example
+
+```bash
+
+curl -X 'GET' \
+  'https://rdi-mlops-api.herokuapp.com/' \
+  -H 'accept: application/json'
+  
+```
+
+
+## Predict [POST]
+
+This endpoint checks whether a server is up and running or not
+
+#### Request URL
+
+https://rdi-mlops-api.herokuapp.com/docs#/default/predict_predict_post
+
+#### Request parameters
+
+NA
+
+#### Request Body
+
+NA
+
+#### Request Response
+
+200 OK
+
+#### Representation
+
+```json
+{
+  "result": {
+    "Prediction": "Normal",
+    "Score": "98.9%"
+  }
+}
+```
+
+#### Code example
+
 ```bash
 
 curl -X 'POST' \
-  'https://localhost/predict' \
+  'https://rdi-mlops-api.herokuapp.com/predict' \
   -H 'accept: application/json' \
   -H 'Content-Type: multipart/form-data' \
-  -F 'file=@image.jpg;type=image/jpeg'
+  -F 'file=@img.jpg;type=image/jpeg'
   
 ```
