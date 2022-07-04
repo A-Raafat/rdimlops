@@ -2,14 +2,52 @@
 
 This repo has the API of the task
 
-To test the API functionality, go to https://rdi-mlops-api.herokuapp.com/docs
+This repo contains the CI/CD of the task, CI is done by using Github actions, it will run the test function in `app/test_api.py` using pytest, which checks the home page and the predict function api
 
-You can either use the curl the deployed API using the following Curl command
+To test the API functionality manually, go to https://rdi-mlops-api.herokuapp.com/docs
+
+or 
+
+You can check the deployed API using the following Curl command
 
 ```bash
 
 curl -X 'POST' \
   'https://rdi-mlops-api.herokuapp.com/predict' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: multipart/form-data' \
+  -F 'file=@image.jpg;type=image/jpeg'
+  
+```
+
+
+Another method is to download the repository and build docker image using the command
+
+```bash
+
+sudo docker build -t name:tag .
+
+```
+
+then run the docker image using the command
+
+```bash
+
+sudo docker run --rm -p 80:80 -it name:tag
+
+```
+
+Now you have the docker image deployed and you can access it with the link https://localhost:80, you will see the welcome message
+
+Then you can go to localhost/docs to test the API using the FastAPI UI
+
+or by also using curl
+
+
+```bash
+
+curl -X 'POST' \
+  'https://localhost/predict' \
   -H 'accept: application/json' \
   -H 'Content-Type: multipart/form-data' \
   -F 'file=@image.jpg;type=image/jpeg'
