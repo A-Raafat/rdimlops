@@ -1,6 +1,6 @@
-# rdimlops
+# RDI MLOps Task
 
-This repo has the UI of the task
+This main branch has the UI of the task
 
 The UI is done using Jinja2 from FastAPI which takes a template HTML file and connects it to the server. You will find the HTML code in `templates/index.html`
 
