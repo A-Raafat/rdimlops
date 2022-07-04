@@ -1,4 +1,4 @@
-# rdimlops
+# RDI MLOps task
 
 This branch to explain the walkthrough of the training / test pipeline
 
