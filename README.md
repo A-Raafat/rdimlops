@@ -1,5 +1,9 @@
 # rdimlops
 
-This repo has the UI of the task
+This branch to explain the walkthrough of the training / test pipeline
 
-To test the app, go to https://rdimlops.herokuapp.com/
+
+## Requirements
+- lightgbm
+- openv-python-headless
+- sklearn
