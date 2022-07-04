@@ -45,7 +45,7 @@ x_test = x_test.reshape((x_test.shape[0], x_test.shape[-1]))
 
 
 
-model = ltb.LGBMClassifier(boosting_type='gbdt', 
+model = LGBMClassifier(boosting_type='gbdt', 
                  objective='binary',
                  num_iteration=100, max_depth=4, learning_rate=0.01, 
                  n_estimators=100, nthread=4, silent=False)
