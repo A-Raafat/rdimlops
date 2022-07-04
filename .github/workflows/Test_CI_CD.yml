@@ -33,7 +33,7 @@ jobs:
         name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install numpy fastapi uvicorn scikit-learn pytest lightgbm joblib opencv-python-headless requests
+          pip install numpy fastapi uvicorn scikit-learn pytest lightgbm joblib opencv-python-headless requests python-multipart
       -
         name: Test with pytest
         run: |
