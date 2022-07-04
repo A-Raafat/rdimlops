@@ -1,6 +1,6 @@
-# rdimlops
+# RDI MLOps Task
 
-This repo has the API of the task
+This branch has the API of the task
 
 This repo contains the CI/CD of the task, CI is done by using Github actions, it will run the test function in `app/test_api.py` using pytest, which checks the home page and the predict function api
 
