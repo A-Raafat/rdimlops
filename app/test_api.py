@@ -1,5 +1,6 @@
 import joblib
 import lightgbm
+import cv2
 
 def preprocess(im):
 	im = cv2.resize(im,(150,150))/255.0
