@@ -7,7 +7,7 @@ def preprocess(im):
 	im = im.reshape(1,-1)
 	return im
 	
-im_path = 'test_images/norm.jpg'
+im_path = 'static/images/covid.jpg'
 
 im = cv2.imread(im_path,0)
 im = preprocess(im)
