@@ -21,8 +21,10 @@ This branch to explain the walkthrough of the training / test pipeline
 
 ## Training steps
 
-- Create the lightgbm classifier 
-- Fit on the dataset using model.fit
+- Create Lightgbm datasets [ train / test ]
+- Create the lightgbm classifier parameters
+- Create the lightgbm classifier model object and pass the parameters and datasets
+- Fit on the dataset using model.train
 - Saving (dump) the model as pickle format using joblib
 
 ## Testing steps
@@ -35,12 +37,14 @@ This branch to explain the walkthrough of the training / test pipeline
 - The test (around 400 images) set gave us the following results
 
 - Confusion matrix
+- 
 ![alt text](https://github.com/A-Raafat/rdimlops/blob/Train_Test/cm.png)
+
 - Precision recall and F1 score
 
 |Metric| Score |
 |:----:|:-----:|
-|Precision|0.9612554112554113|
-|Recall|0.9427926481422013|
-|F1_score|0.951060971558162|
-|Accuracy|0.9566115702479339|
+|Precision|0.9833484026522001|
+|Recall|0.984708815806872|
+|F1_score|0.9840230128975973|
+|Accuracy|0.9855371900826446|
