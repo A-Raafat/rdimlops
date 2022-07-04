@@ -52,7 +52,8 @@ This endpoint checks whether a server is up and running or not
 
 #### Request URL
 
-https://rdi-mlops-api.herokuapp.com/
+https://rdi-mlops-api.herokuapp.com/  (for cloud deployment)
+https://localhost/ (for local deployment)
 
 #### Request parameters
 
@@ -85,11 +86,12 @@ curl -X 'GET' \
 
 ## Predict [POST]
 
-This endpoint checks whether a server is up and running or not
+This endpoint is for classifying the image as covid or normal
 
 #### Request URL
 
-https://rdi-mlops-api.herokuapp.com/docs#/default/predict_predict_post
+https://rdi-mlops-api.herokuapp.com/docs#/default/predict_predict_post (deployed api on cloud)
+https:localhost/predict (for local deployment)
 
 #### Request parameters
 
