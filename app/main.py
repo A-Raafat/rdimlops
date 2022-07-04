@@ -37,10 +37,10 @@ async def home_predict(request: Request, file: UploadFile = File(...) ):
     pred = clf.predict(image)[0]
     
     if pred < 0.5:
-    	out="Normal"
+    	out="Congratulations you are Normal !"
     	ss= round(((1-pred)*100),2)
     else:
-    	out="Covid"
+    	out="Unfortunately you are infected by Covid"
     	ss = round(pred*100,2)
     result={"Prediction": out, "Score" : str(ss)+'%'}
     
