@@ -1,3 +1,3 @@
 # rdimlops
 
-to test the app, go to https://rdimlops.herokuapp.com/
+To test the app, go to https://rdimlops.herokuapp.com/
