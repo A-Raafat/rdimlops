@@ -37,9 +37,9 @@ async def home_predict(request: Request, file: UploadFile = File(...) ):
     pred = clf.predict(image)[0]
     
     if pred < 0.5:
-    	out="Congratulations you are Normal !"
+    	out="Normal"
     else:
-    	out="Unfortunately you are infected by Covid"
+    	out="Covid"
     	
     result={"Prediction": out}
     return templates.TemplateResponse("index.html", {"request": request, 'result': result})
@@ -61,3 +61,5 @@ async def predict(file: UploadFile = File(...) ):
     	out="Covid"
     
     return {"Prediction": out}
+    
+    
