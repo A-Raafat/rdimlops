@@ -28,7 +28,14 @@ def home(request: Request):
 @app.post("/")
 async def home_predict(request: Request, file: UploadFile = File(...) ):
     
-    #img = cv2.imread(file.filename)
+    try:
+      ext = file.filename.split(".")[-1] 
+      if ext not in ['bmp','png', 'jpg','tiff']:
+        noresult={"error": "Please upload an image only with extention jpg / bmp / png / tiff"}
+        return templates.TemplateResponse("index.html", {"request": request, 'noresult': noresult})
+    except:
+      noresult={"error": "Please upload an image only with extention jpg / bmp / png / tiff"}
+      return templates.TemplateResponse("index.html", {"request": request, 'noresult': noresult})
     img_bytes=file.file.read()
     nparr = np.fromstring(img_bytes, np.uint8)
     image = cv2.imdecode(nparr, cv2.IMREAD_GRAYSCALE)
