@@ -25,6 +25,11 @@
         <p>Prediction score: {{result.Score}}</p>
     </div>
     {% endif %}
+    {% if noresult%}
+    <div>
+        <p>{{noresult.error}}</p>
+    </div>
+    {% endif %}
 </body>
 
 </html>
