@@ -9,7 +9,7 @@ from fastapi.staticfiles import StaticFiles
 
 app = FastAPI(title="Predicting Covid Class")
 
-#app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 
