@@ -25,7 +25,14 @@ def home(request: Request):
     
 @app.post("/predict")
 async def predict(file: UploadFile = File(...) ):
-    
+    try:
+      ext = file.filename.split(".")[-1] 
+      if ext not in ['bmp','png', 'jpg','tiff']:
+        noresult={"error": "Please upload an image only with extention jpg / bmp / png / tiff"}
+        return {"result": noresult}
+    except:
+      noresult={"error": "Please upload an image only with extention jpg / bmp / png / tiff"}
+      return {"result": noresult}
     #img = cv2.imread(file.filename)
     img_bytes=file.file.read()
     nparr = np.fromstring(img_bytes, np.uint8)
